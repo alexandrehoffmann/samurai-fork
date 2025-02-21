@@ -28,6 +28,8 @@ set(SAMURAI_TESTS
     test_portion.cpp
     test_scaling.cpp
     test_utils.cpp
+    test_add_point.cpp
+    test_add_interval.cpp
 )
 
 if(rapidcheck_FOUND)
