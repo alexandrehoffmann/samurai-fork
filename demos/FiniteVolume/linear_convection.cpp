@@ -6,6 +6,7 @@
 #include <samurai/mr/mesh.hpp>
 #include <samurai/samurai.hpp>
 #include <samurai/schemes/fv.hpp>
+#include <samurai/statistics.hpp>
 
 #include <filesystem>
 namespace fs = std::filesystem;
@@ -157,10 +158,11 @@ int main(int argc, char* argv[])
         std::string suffix = (nfiles != 1) ? fmt::format("_ite_{}", nsave++) : "";
         save(path, filename, u, suffix);
     }
-
+		
     double t = 0;
     while (t != Tf)
     {
+				samurai::statistics("linear_convection_2D", mesh);
         // Move to next timestep
         t += dt;
         if (t > Tf)
